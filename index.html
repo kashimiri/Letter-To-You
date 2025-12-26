@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Letter to Gel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: #2c2416;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(101, 67, 33, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .envelope-container {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .letter {
+            background: #f4e8d0;
+            background-image: 
+                linear-gradient(90deg, transparent 79px, #d4c5a9 79px, #d4c5a9 81px, transparent 81px),
+                linear-gradient(#f9f3e3 .05em, transparent .05em);
+            background-size: 100% 1.5em;
+            padding: 60px 50px;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.5),
+                inset 0 0 100px rgba(139, 69, 19, 0.1);
+            position: relative;
+            animation: unfold 1.5s ease-out;
+            border: 2px solid #c9b896;
+        }
+
+        @keyframes unfold {
+            0% {
+                transform: rotateX(-90deg);
+                opacity: 0;
+            }
+            100% {
+                transform: rotateX(0);
+                opacity: 1;
+            }
+        }
+
+        .letter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 15% 20%, rgba(139, 69, 19, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 85% 80%, rgba(101, 67, 33, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 50% 50%, rgba(160, 82, 45, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .stamp {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border: 3px solid #8b4513;
+            background: #d2691e;
+            transform: rotate(12deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #f4e8d0;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .date {
+            text-align: right;
+            margin-bottom: 30px;
+            font-size: 0.95em;
+            color: #3a3a3a;
+            letter-spacing: 1px;
+        }
+
+        .greeting {
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            color: #2a2a2a;
+        }
+
+        .letter-body {
+            line-height: 1.5em;
+            color: #2a2a2a;
+            font-size: 1em;
+            text-align: justify;
+            margin-bottom: 1.5em;
+        }
+
+        .letter-body p {
+            margin-bottom: 1.5em;
+            text-indent: 40px;
+        }
+
+        .emphasis {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .question-box {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            border: 2px dashed #8b4513;
+            background: rgba(139, 69, 19, 0.05);
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .closing {
+            margin-top: 40px;
+            text-align: center;
+            font-style: italic;
+            color: #3a3a3a;
+        }
+
+        .signature-line {
+            margin-top: 50px;
+            padding-top: 20px;
+        }
+
+        .typewriter-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 2s steps(40, end);
+        }
+
+        .fold-marks {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #c9b896;
+            opacity: 0.3;
+        }
+
+        .fold-top {
+            top: 33%;
+        }
+
+        .fold-bottom {
+            bottom: 33%;
+        }
+
+        .corner-tear {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #2c2416;
+            opacity: 0.1;
+        }
+
+        .tear-tl {
+            top: -2px;
+            left: -2px;
+            border-radius: 0 0 100% 0;
+        }
+
+        .tear-br {
+            bottom: -2px;
+            right: -2px;
+            border-radius: 100% 0 0 0;
+        }
+
+        @media (max-width: 600px) {
+            .letter {
+                padding: 40px 30px;
+            }
+
+            .stamp {
+                width: 50px;
+                height: 50px;
+                font-size: 8px;
+            }
+
+            .letter-body {
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="envelope-container">
+        <div class="letter">
+            <div class="stamp">POSTAL<br>SERVICE<br>1945</div>
+            <div class="corner-tear tear-tl"></div>
+            <div class="corner-tear tear-br"></div>
+            <div class="fold-marks fold-top"></div>
+            <div class="fold-marks fold-bottom"></div>
+            
+            <div class="date">December 26, 2025</div>
+            
+            <div class="greeting">Dear Gel,</div>
+            
+            <div class="letter-body">
+                <p>I hope you see this letter. I am grateful that you have suddenly become somewhat close to me.</p>
+                
+                <p>I was out with my friends in Toledo. We walked and talked about random things, and we also took pictures with the props they have displayed in Megadome. It was fun. My gang (I call them my gang) played badminton in Bato at that time. Then, one of the gang said, "We should go to Toledo and eat dinner." After dinner, the gang and I—it was not planned—went to Megadome, and we had fun.</p>
+                
+                <p>I just wanted to tell you that yeah, when you asked, <span class="emphasis">"Do you like me?"</span> Yeah, I do. Not just because you are a beautiful person but also a heartwarming one too. But because you put up with my antics. And by the time I realized it, I had fallen for you. (I should stop getting myself attached to people so easily.)</p>
+            </div>
+            
+            <div class="question-box">
+                Can I take you out on a date?
+            </div>
+            
+            <div class="closing">
+                <p>You can directly say yes or no. By doing that,<br>it will help me clarify what you actually think of me.</p>
+            </div>
+            
+            <div class="signature-line">
+                <div style="text-align: right; margin-top: 30px;">
+                    <p>Yours truly,</p>
+                    <p style="margin-top: 20px; font-style: italic;">Arc</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
